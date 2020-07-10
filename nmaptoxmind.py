@@ -49,5 +49,4 @@ for NmapPiece in NmapResult:
     topicElement = nmapSheetRoot.addSubTopic()
     topicElement.setTopicHyperlink(nmapSheetRoot.getID())
     topicElement.setTitle(NmapString)
-
-xmind.save(workbook,"result.xmind") 
+xmind.save(workbook,dirstring) 
