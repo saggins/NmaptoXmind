@@ -13,6 +13,10 @@ nmapSheetRoot.setTitle("Nmap")
 # EX: [443](Ubuntu) http - ngnix 1.14.0
 def makeNmapString(nmapScan):
     try:
+        portstate = nmapScan["state"]
+    except:
+        portstate= ""
+    try:
         port = nmapScan["port"]
     except:
         port= ""
@@ -37,8 +41,8 @@ def makeNmapString(nmapScan):
     except:
         version=""
 
-    NmapScanString = "[{}]({}) {} - {}  {}"
-    FormattedNmapString = NmapScanString.format(port, extrainfo, name, product, version)
+    NmapScanString = "[{}][{}]({}) {} - {}  {}"
+    FormattedNmapString = NmapScanString.format(portstate,port, extrainfo, name, product, version)
     return FormattedNmapString
 
 nmap = nmap3.Nmap()
